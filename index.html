@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Comfort Zone ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff7f5;
+    color: #29283b;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    background: #29283b;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #ffb8c8;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 20px 55px;
+    background: linear-gradient(135deg, #ffe0e8, #fff2d9);
+}
+
+.tag {
+    display: inline-block;
+    background: white;
+    color: #e17d9b;
+    padding: 7px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    color: #29283b;
+    margin-bottom: 12px;
+}
+
+.hero h1 span {
+    color: #e17d9b;
+}
+
+.hero p {
+    max-width: 550px;
+    margin: auto;
+    color: #686477;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    background: #29283b;
+    color: white;
+    padding: 13px 23px;
+    border-radius: 30px;
+    margin-top: 22px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: .2s;
+}
+
+.btn:hover {
+    background: #e17d9b;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 55px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 27px;
+}
+
+.section-title p {
+    color: #898596;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 750px;
+    margin: auto;
+}
+
+.character {
+    background: white;
+    padding: 17px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 8px 25px #29283b0c;
+}
+
+.character img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 16px;
+    background: #ffe0e8;
+}
+
+.character h3 {
+    margin-top: 14px;
+}
+
+.character p {
+    color: #898596;
+    font-size: 12px;
+}
+
+.card {
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    max-width: 650px;
+    margin: 20px auto;
+    box-shadow: 0 8px 25px #29283b0c;
+}
+
+.center {
+    text-align: center;
+}
+
+.mood-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.mood-buttons button,
+.choice-btn {
+    background: #fff0f3;
+    border: 1px solid #ffd5df;
+    border-radius: 15px;
+    padding: 12px 17px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.mood-buttons button:hover,
+.choice-btn:hover {
+    background: #ffdce5;
+}
+
+.result {
+    color: #d66f91;
+    font-weight: 600;
+    margin-top: 15px;
+    min-height: 25px;
+}
+
+.big-emoji {
+    font-size: 45px;
+    margin: 10px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 17px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.feature {
+    background: white;
+    padding: 23px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px #29283b0c;
+}
+
+.feature h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.feature p {
+    color: #898596;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.feature button {
+    margin-top: 15px;
+}
+
+.playlist {
+    max-width: 700px;
+    margin: auto;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: white;
+    padding: 15px 18px;
+    border-radius: 16px;
+    margin: 12px 0;
+}
+
+.song-info h4 {
+    font-size: 14px;
+}
+
+.song-info p {
+    color: #898596;
+    font-size: 11px;
+}
+
+.song a {
+    background: #29283b;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 9px 15px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.song a:hover {
+    background: #e17d9b;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #f2cbd5;
+    border-radius: 15px;
+    padding: 14px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 110px;
+    outline: none;
+}
+
+footer {
+    background: #29283b;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 12px;
+    line-height: 2;
+}
+
+#surpriseText {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+@media(max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0 6px;
+        font-size: 11px;
+    }
+
+    section {
+        padding: 40px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SASHVA ♡ WILLIAM</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#mood">Mood</a>
+        <a href="#fun">Fun</a>
+        <a href="#music">Playlist</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <div class="tag">A LITTLE WEBSITE MADE WITH LOVE ♡</div>
+    <h1>Hey, <span>William!</span> ☁️</h1>
+    <p>
+        I heard today was a little exhausting.
+        So here's your tiny corner of happiness.
+        No pressure, no worries. Just take a break
+        and enjoy your little moment here.
+    </p>
+    <button class="btn" onclick="startSurprise()">
+        Open your little gift 🎁
+    </button>
+</div>
+
+<!-- CHARACTERS -->
+<section>
+    <div class="section-title">
+        <h2>Your comfort characters ♡</h2>
+        <p>Two little faces in your happy corner.</p>
+    </div>
+
+    <div class="characters">
+        <div class="character">
+            <img src="asa baemon/asa_baemon.jpg"
+                 alt="Asa BABYMONSTER"
+            <p>Your little sunshine and happiness dealer💕💕.</p>
+        </div>
+
+        <div class="character">
+            <img src="woonhak/Woonhak.jpg"
+                 alt="Woonhak BOYNEXTDOOR"
+            <h3>William 🐻</h3>
+            <p>The main character who deserves a happy day.</p>
+        </div>
+    </div>
+</section>
+
+<!-- MOOD CHECKER -->
+<section id="mood">
+    <div class="section-title">
+        <h2>How's your heart today? ☁️</h2>
+        <p>Be honest. Every feeling is valid.</p>
+    </div>
+
+    <div class="card center">
+        <div class="big-emoji">🌷</div>
+        <h3>Pick your current mood!</h3>
+
+        <div class="mood-buttons">
+            <button onclick="setMood('happy')">😊 Happy</button>
+            <button onclick="setMood('tired')">🥱 Tired</button>
+            <button onclick="setMood('sad')">🥺 Sad</button>
+            <button onclick="setMood('stressed')">😵 Stressed</button>
+            <button onclick="setMood('blank')">😶 No idea</button>
+        </div>
+
+        <div class="result" id="moodResult">
+            Your mood matters here, sayang ♡
+        </div>
+    </div>
+</section>
+
+<!-- FUN FEATURES -->
+<section id="fun">
+    <div class="section-title">
+        <h2>Little happiness station ✨</h2>
+        <p>Choose something fun to make your day better.</p>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature">
+            <div class="big-emoji">💌</div>
+            <h3>Random Compliment</h3>
+            <p>A little reminder of how awesome you are.</p>
+            <button class="btn" onclick="compliment()">Get compliment</button>
+            <div class="result" id="complimentResult"></div>
+        </div>
+
+        <div class="feature">
+            <div class="big-emoji">🎁</div>
+            <h3>Mystery Box</h3>
+            <p>What's inside today's mystery gift?</p>
+            <button class="btn" onclick="mystery()">Open box</button>
+            <div class="result" id="mysteryResult"></div>
+        </div>
+
+        <div class="feature">
+            <div class="big-emoji">🎮</div>
+            <h3>Guess the Number</h3>
+            <p>Guess a number between 1 and 5!</p>
+            <input type="number" id="guessInput" min="1" max="5"
+                style="width:75px;padding:10px;border:1px solid #ffd5df;border-radius:10px;">
+            <br>
+            <button class="btn" onclick="guessNumber()">Guess!</button>
+            <div class="result" id="guessResult"></div>
+        </div>
+
+        <div class="feature">
+            <div class="big-emoji">💗</div>
+            <h3>Virtual Hug</h3>
+            <p>A warm little reminder that you deserve kindness.</p>
+            <button class="btn" onclick="hug()">Tap for a hug</button>
+            <div class="result" id="hugResult"></div>
+        </div>
+
+        <div class="feature">
+            <div class="big-emoji">🌈</div>
+            <h3>This or That?</h3>
+            <p>Choose your favorite little things.</p>
+            <button class="btn" onclick="thisOrThat()">Start choosing</button>
+            <div class="result" id="choiceResult"></div>
+        </div>
+
+        <div class="feature">
+            <div class="big-emoji">🐻</div>
+            <h3>Daily Reminder</h3>
+            <p>Some words you might need to hear today.</p>
+            <button class="btn" onclick="reminder()">Tell me!</button>
+            <div class="result" id="reminderResult"></div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PLAYLIST -->
+<section id="music">
+    <div class="section-title">
+        <h2>William's comfort playlist 🎧</h2>
+        <p>Press play and let the music do its magic.</p>
+    </div>
+
+    <div class="playlist" id="songList"></div>
+</section>
+
+<!-- PERSONAL MESSAGE -->
+<section>
+    <div class="section-title">
+        <h2>A little message for you 💌</h2>
+        <p>Write something here and save it on this device.</p>
+    </div>
+
+    <div class="card">
+        <textarea id="myMessage"
+        placeholder="Dear William, I hope you know that..."></textarea>
+
+        <div class="center">
+            <button class="btn" onclick="saveMessage()">Save my message ♡</button>
+            <div class="result" id="saveResult"></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <h3>Made with ♡ by Sashva</h3>
+    <p>For William, on good days and not-so-good days.</p>
+    <p>Remember: you don't have to be productive every second.</p>
+    <p>Rest is okay. You are doing enough. ☁️</p>
+    <p>© 2026 — Little Comfort Zone</p>
+</footer>
+
+<script>
+
+// SURPRISE
+function startSurprise() {
+    alert(
+        "SURPRISE!! 🎀\n\n" +
+        "William, this little website is made just to remind you:\n\n" +
+        "You deserve happiness, rest, and good things.\n" +
+        "Take it easy today, okay? ♡"
+    );
+}
+
+// MOOD CHECKER
+function setMood(mood) {
+    let messages = {
+        happy: "YAY!! Keep that beautiful energy. Spread your sunshine! 🌞",
+        tired: "It's okay to slow down. You deserve a proper rest, William. 🧸",
+        sad: "Sending you a little sunshine. Tomorrow can be a fresh start. 🌷",
+        stressed: "One thing at a time. You don't have to solve everything now. ☁️",
+        blank: "No need to figure everything out. Just breathe and take it easy. 💗"
+    };
+
+    document.getElementById("moodResult").innerText = messages[mood];
+}
+
+// RANDOM COMPLIMENT
+function compliment() {
+    let compliments = [
+        "You're doing better than you think, William! ⭐",
+        "Your existence makes the world a little brighter.",
+        "You deserve all the good things in this world.",
+        "You're cool, talented, and one of a kind!",
+        "Even on your tired days, you're still amazing.",
+        "Don't forget to be proud of yourself!"
+    ];
+
+    let random = Math.floor(Math.random() * compliments.length);
+    document.getElementById("complimentResult").innerText =
+        compliments[random];
+}
+
+// MYSTERY BOX
+function mystery() {
+    let gifts = [
+        "🎁 Your gift: Unlimited permission to rest today!",
+        "🍰 Your gift: One imaginary strawberry cake!",
+        "🐻 Your gift: One cute bear to keep you company!",
+        "🌷 Your gift: A fresh start and a happy little moment!",
+        "⭐ Your gift: A reminder that you're enough!",
+        "🎧 Your gift: A peaceful music break!"
+    ];
+
+    let random = Math.floor(Math.random() * gifts.length);
+    document.getElementById("mysteryResult").innerText = gifts[random];
+}
+
+// GUESS NUMBER
+let secretNumber = Math.floor(Math.random() * 5) + 1;
+
+function guessNumber() {
+    let guess = Number(document.getElementById("guessInput").value);
+    let result = document.getElementById("guessResult");
+
+    if (guess < 1 || guess > 5 || !Number.isInteger(guess)) {
+        result.innerText = "Choose a number from 1 to 5!";
+    } else if (guess === secretNumber) {
+        result.innerText = "OMG YOU GOT IT!! You're so lucky! 🎉";
+        secretNumber = Math.floor(Math.random() * 5) + 1;
+    } else {
+        result.innerText = "Not this time! Try one more time hehe.";
+    }
+}
+
+// VIRTUAL HUG
+function hug() {
+    document.getElementById("hugResult").innerText =
+        "A BIG WARM VIRTUAL HUG FOR YOU!! 🧸💗";
+}
+
+// THIS OR THAT
+let choices = [
+    "Coffee ☕ or Matcha 🍵?",
+    "Sunrise 🌅 or Sunset 🌇?",
+    "Beach 🏖️ or Mountains 🏔️?",
+    "Movie night 🎬 or Game night 🎮?",
+    "Sweet 🍰 or Salty 🍟?",
+    "Cats 🐱 or Dogs 🐶?"
+];
+
+function thisOrThat() {
+    let random = Math.floor(Math.random() * choices.length);
+    document.getElementById("choiceResult").innerText = choices[random];
+}
+
+// DAILY REMINDER
+function reminder() {
+    let reminders = [
+        "Drink some water, William! 💧",
+        "You are allowed to take a break.",
+        "Don't forget to eat something nice!",
+        "Your best is enough. Always.",
+        "Take a deep breath. No rush.",
+        "You deserve a peaceful day. ☁️"
+    ];
+
+    let random = Math.floor(Math.random() * reminders.length);
+    document.getElementById("reminderResult").innerText = reminders[random];
+}
+
+// PLAYLIST
+let songs = [
+    ["Housewife", "Tate McRae"],
+    ["the cure", "Olivia Rodrigo"],
+    ["Babydoll", "Jamie Miller"],
+    ["back to friends", "sombr"],
+    ["Beautiful Things", "Benson Boone"],
+    ["Birds of a Feather", "Billie Eilish"],
+    ["Ordinary", "Alex Warren"],
+    ["Die With A Smile", "Lady Gaga & Bruno Mars"],
+    ["Golden", "Harry Styles"],
+    ["Good Life", "OneRepublic"]
+];
+
+let songList = document.getElementById("songList");
+
+songs.forEach(function(song) {
+    let query = encodeURIComponent(song[0] + " " + song[1] + " official audio");
+
+    songList.innerHTML += `
+        <div class="song">
+            <div class="song-info">
+                <h4>🎵 ${song[0]}</h4>
+                <p>${song[1]}</p>
+            </div>
+            <a href="https://www.youtube.com/results?search_query=${query}"
+               target="_blank" rel="noopener noreferrer">
+               ▶ Play
+            </a>
+        </div>
+    `;
+});
+
+// SAVE MESSAGE
+function saveMessage() {
+    let message = document.getElementById("myMessage").value;
+
+    if (message.trim() === "") {
+        document.getElementById("saveResult").innerText =
+            "Write a little message first! 💌";
+        return;
+    }
+
+    localStorage.setItem("williamMessage", message);
+
+    document.getElementById("saveResult").innerText =
+        "Your message has been saved on this device! ♡";
+}
+
+// LOAD SAVED MESSAGE
+window.onload = function() {
+    let saved = localStorage.getItem("williamMessage");
+
+    if (saved) {
+        document.getElementById("myMessage").value = saved;
+    }
+};
+
+</script>
+
+</body>
+</html>
